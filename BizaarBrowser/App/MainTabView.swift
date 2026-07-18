@@ -6,11 +6,12 @@ struct MainTabView: View {
 
     var body: some View {
         TabView(selection: $selectedTab) {
-            BrowserView()
+            BrowserView(selectedTab: $selectedTab)
                 .tabItem {
                     Label("Browser", systemImage: "globe")
                 }
                 .tag(0)
+                .toolbar(settings.isBrowserChromeHidden ? .hidden : .automatic, for: .tabBar)
 
             GalleryView()
                 .tabItem {
@@ -25,7 +26,5 @@ struct MainTabView: View {
                 .tag(2)
         }
         .accentColor(.gold)
-        .toolbar(settings.isBrowserChromeHidden && selectedTab == 0 ? .hidden : .automatic, for: .tabBar)
-        .animation(.easeOut(duration: 0.25), value: settings.isBrowserChromeHidden)
     }
 }

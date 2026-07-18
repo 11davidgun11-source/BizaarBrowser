@@ -13,6 +13,8 @@ struct WebViewContainer: UIViewRepresentable {
         let webView = WKWebView(frame: .zero, configuration: config)
         webView.allowsBackForwardNavigationGestures = true
         webView.scrollView.keyboardDismissMode = .onDrag
+        webView.isOpaque = false
+        webView.backgroundColor = .systemBackground
 
         browserState.mediaDetector.configure(webView: webView)
         browserState.webView = webView
@@ -47,7 +49,6 @@ struct WebViewContainer: UIViewRepresentable {
             if keyPath == "contentOffset" {
                 guard let scrollView = object as? UIScrollView else { return }
                 let currentY = scrollView.contentOffset.y
-                let insetTop = scrollView.adjustedContentInset.top
 
                 guard hasReceivedFirstScroll else {
                     previousScrollY = currentY
@@ -55,7 +56,7 @@ struct WebViewContainer: UIViewRepresentable {
                     return
                 }
 
-                guard currentY > -insetTop + 10 else {
+                guard currentY > 10 else {
                     if settings?.isBrowserChromeHidden == true {
                         DispatchQueue.main.async { [weak self] in
                             withAnimation(.easeOut(duration: 0.25)) {
