@@ -1,63 +1,61 @@
 import SwiftUI
 
-struct MediaOverlay: View {
+struct MediaSheetView: View {
     let media: [DetectedMedia]
     let onDownload: (DetectedMedia) -> Void
-    let onDismiss: () -> Void
+    let onDownloadAll: () -> Void
 
     @State private var downloadedIDs: Set<UUID> = []
 
     var body: some View {
-        VStack(spacing: 0) {
-            Divider()
+        NavigationStack {
+            VStack(spacing: 0) {
+                HStack {
+                    Text("\(media.count) media file\(media.count == 1 ? "" : "s") detected")
+                        .font(.subheadline.bold())
+                        .foregroundColor(.primary)
 
-            HStack {
-                Text("\(media.count) media file\(media.count == 1 ? "" : "s") detected")
+                    Spacer()
+
+                    Button("Download All") {
+                        onDownloadAll()
+                        for item in media {
+                            downloadedIDs.insert(item.id)
+                        }
+                    }
                     .font(.subheadline.bold())
-                    .foregroundColor(.primary)
-
-                Spacer()
-
-                Button("Download All") {
-                    for item in media {
-                        onDownload(item)
-                        downloadedIDs.insert(item.id)
-                    }
-                }
-                .font(.subheadline.bold())
-                .foregroundColor(.gold)
-
-                Button(action: onDismiss) {
-                    Image(systemName: "xmark.circle.fill")
-                        .foregroundColor(.secondary)
-                }
-                .padding(.leading, 8)
-            }
-            .padding(.horizontal, 16)
-            .padding(.vertical, 10)
-
-            ScrollView(.horizontal, showsIndicators: false) {
-                LazyHStack(spacing: 10) {
-                    ForEach(media) { item in
-                        MediaThumbnailCard(
-                            media: item,
-                            isDownloaded: downloadedIDs.contains(item.id),
-                            onDownload: {
-                                onDownload(item)
-                                downloadedIDs.insert(item.id)
-                            }
-                        )
-                    }
+                    .foregroundColor(.gold)
                 }
                 .padding(.horizontal, 16)
-                .padding(.bottom, 12)
+                .padding(.vertical, 12)
+
+                Divider()
+
+                ScrollView {
+                    LazyVGrid(columns: [
+                        GridItem(.adaptive(minimum: 80, maximum: 120), spacing: 10)
+                    ], spacing: 10) {
+                        ForEach(media) { item in
+                            MediaGridCard(
+                                media: item,
+                                isDownloaded: downloadedIDs.contains(item.id),
+                                onDownload: {
+                                    onDownload(item)
+                                    downloadedIDs.insert(item.id)
+                                }
+                            )
+                        }
+                    }
+                    .padding(12)
+                }
             }
+            .navigationTitle("Detected Media")
+            .navigationBarTitleDisplayMode(.inline)
         }
-        .background(.ultraThinMaterial)
     }
 }
 
-struct MediaThumbnailCard: View {
+struct MediaGridCard: View {
     let media: DetectedMedia
     let isDownloaded: Bool
     let onDownload: () -> Void
@@ -67,7 +65,7 @@ struct MediaThumbnailCard: View {
             ZStack {
                 RoundedRectangle(cornerRadius: 8)
                     .fill(Color(.systemGray5))
-                    .frame(width: 80, height: 80)
+                    .aspectRatio(1, contentMode: .fit)
 
                 Image(systemName: mediaIcon)
                     .font(.title2)
@@ -77,7 +75,6 @@ struct MediaThumbnailCard: View {
             Text(media.displayName)
                 .font(.caption2)
                 .lineLimit(1)
-                .frame(width: 80)
 
             Button(action: onDownload) {
                 Image(systemName: isDownloaded ? "checkmark.circle.fill" : "arrow.down.circle.fill")
@@ -86,7 +83,6 @@ struct MediaThumbnailCard: View {
             }
             .disabled(isDownloaded)
         }
-        .frame(width: 80)
     }
 
     private var mediaIcon: String {

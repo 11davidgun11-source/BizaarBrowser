@@ -8,6 +8,8 @@ class BrowserState: ObservableObject {
     @Published var currentURL: URL?
     @Published var canGoBack: Bool = false
     @Published var canGoForward: Bool = false
+    @Published var isChromeHidden: Bool = false
+    @Published var showMediaSheet: Bool = false
 
     let mediaDetector = MediaDetector()
 

@@ -17,10 +17,12 @@ struct WebViewContainer: UIViewRepresentable {
         browserState.webView = webView
 
         context.coordinator.browserState = browserState
+        context.coordinator.webView = webView
         webView.navigationDelegate = context.coordinator
         webView.uiDelegate = context.coordinator
         webView.addObserver(context.coordinator, forKeyPath: "estimatedProgress", options: .new, context: nil)
         webView.addObserver(context.coordinator, forKeyPath: "isLoading", options: .new, context: nil)
+        webView.scrollView.addObserver(context.coordinator, forKeyPath: "contentOffset", options: .new, context: nil)
 
         return webView
     }
@@ -33,8 +35,43 @@ struct WebViewContainer: UIViewRepresentable {
 
     class Coordinator: NSObject, WKNavigationDelegate, WKUIDelegate {
         var browserState: BrowserState?
+        weak var webView: WKWebView?
+        private var previousScrollY: CGFloat = 0
+        private var scrollAccumulator: CGFloat = 0
 
         override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+            if keyPath == "contentOffset" {
+                guard let scrollView = object as? UIScrollView else { return }
+                let currentY = scrollView.contentOffset.y
+                let delta = currentY - previousScrollY
+
+                guard currentY > 0 else {
+                    previousScrollY = currentY
+                    scrollAccumulator = 0
+                    return
+                }
+
+                scrollAccumulator += delta
+
+                DispatchQueue.main.async { [weak self] in
+                    guard let self = self, let state = self.browserState else { return }
+                    if self.scrollAccumulator > 50 && !state.isChromeHidden {
+                        withAnimation(.easeOut(duration: 0.25)) {
+                            state.isChromeHidden = true
+                        }
+                        self.scrollAccumulator = 0
+                    } else if self.scrollAccumulator < -30 && state.isChromeHidden {
+                        withAnimation(.easeOut(duration: 0.25)) {
+                            state.isChromeHidden = false
+                        }
+                        self.scrollAccumulator = 0
+                    }
+                }
+
+                previousScrollY = currentY
+                return
+            }
+
             guard let webView = object as? WKWebView else { return }
 
             DispatchQueue.main.async { [weak self] in
@@ -61,6 +98,7 @@ struct WebViewContainer: UIViewRepresentable {
         deinit {
             browserState?.webView?.removeObserver(self, forKeyPath: "estimatedProgress")
             browserState?.webView?.removeObserver(self, forKeyPath: "isLoading")
+            browserState?.webView?.scrollView.removeObserver(self, forKeyPath: "contentOffset")
         }
     }
 }
