@@ -29,7 +29,7 @@ struct AddressBar: View {
         }
         .padding(.horizontal, 12)
         .padding(.vertical, 10)
-        .background(Color(.systemGray6))
+        .background(.ultraThinMaterial)
         .cornerRadius(12)
         .padding(.horizontal)
         .padding(.top, 8)

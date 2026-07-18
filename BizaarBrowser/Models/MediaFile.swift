@@ -36,6 +36,7 @@ struct MediaFile: Identifiable, Hashable {
     let fileExtension: String
     let dateAdded: Date
     let fileSize: Int64
+    let duration: Double?
 
     var mediaType: MediaType {
         switch fileExtension.lowercased() {
@@ -54,6 +55,21 @@ struct MediaFile: Identifiable, Hashable {
         mediaType == .gif || mediaType == .video
     }
 
+    var durationText: String? {
+        guard let duration = duration, duration > 0 else { return nil }
+        let totalSeconds = Int(duration)
+        if totalSeconds >= 3600 {
+            let h = totalSeconds / 3600
+            let m = (totalSeconds % 3600) / 60
+            let s = totalSeconds % 60
+            return String(format: "%d:%02d:%02d", h, m, s)
+        } else {
+            let m = totalSeconds / 60
+            let s = totalSeconds % 60
+            return String(format: "%d:%02d", m, s)
+        }
+    }
+
     init(url: URL) {
         self.id = UUID()
         self.url = url
@@ -63,5 +79,11 @@ struct MediaFile: Identifiable, Hashable {
         let attributes = try? FileManager.default.attributesOfItem(atPath: url.path)
         self.dateAdded = (attributes?[.creationDate] as? Date) ?? Date()
         self.fileSize = (attributes?[.size] as? Int64) ?? 0
+
+        if self.isVideo || self.isAnimated {
+            self.duration = ThumbnailGenerator.videoDuration(for: url)
+        } else {
+            self.duration = nil
+        }
     }
 }

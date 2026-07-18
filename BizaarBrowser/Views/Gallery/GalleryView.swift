@@ -7,7 +7,9 @@ struct GalleryView: View {
     @State private var showViewer = false
 
     private let columns = [
-        GridItem(.adaptive(minimum: 100, maximum: 150), spacing: 6)
+        GridItem(.flexible(), spacing: 12),
+        GridItem(.flexible(), spacing: 12),
+        GridItem(.flexible(), spacing: 12)
     ]
 
     var filteredFiles: [MediaFile] {
@@ -38,7 +40,7 @@ struct GalleryView: View {
                     emptyState
                 } else {
                     ScrollView {
-                        LazyVGrid(columns: columns, spacing: 6) {
+                        LazyVGrid(columns: columns, spacing: 12) {
                             ForEach(filteredFiles) { file in
                                 ThumbnailCell(file: file)
                                     .onTapGesture {
@@ -47,7 +49,7 @@ struct GalleryView: View {
                                     }
                             }
                         }
-                        .padding(6)
+                        .padding(12)
                     }
                 }
             }

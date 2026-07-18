@@ -12,12 +12,12 @@ struct BrowserView: View {
                     AddressBar(text: $browserState.urlText, onCommit: {
                         browserState.navigateTo(text: browserState.urlText)
                     })
-                    .offset(y: browserState.isChromeHidden ? -80 : 0)
-                    .opacity(browserState.isChromeHidden ? 0 : 1)
+                    .offset(y: settings.isBrowserChromeHidden ? -80 : 0)
+                    .opacity(settings.isBrowserChromeHidden ? 0 : 1)
                     .zIndex(1)
 
                     ZStack {
-                        WebViewContainer(browserState: browserState)
+                        WebViewContainer(browserState: browserState, settings: settings)
 
                         if browserState.isLoading {
                             ProgressView(value: browserState.estimatedProgress)
@@ -33,7 +33,7 @@ struct BrowserView: View {
                         browserState.showMediaSheet = true
                     }
                     .padding(.trailing, 16)
-                    .padding(.bottom, browserState.isChromeHidden ? 20 : 70)
+                    .padding(.bottom, settings.isBrowserChromeHidden ? 20 : 24)
                     .transition(.scale.combined(with: .opacity))
                 }
             }

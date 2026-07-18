@@ -16,6 +16,13 @@ enum ThumbnailGenerator {
         }
     }
 
+    static func videoDuration(for url: URL) -> Double? {
+        let asset = AVURLAsset(url: url)
+        let duration = asset.duration
+        guard duration.isValid && !duration.isIndefinite else { return nil }
+        return CMTimeGetSeconds(duration)
+    }
+
     private static func imageThumbnail(for url: URL, size: CGSize) -> UIImage? {
         guard let source = CGImageSourceCreateWithURL(url as CFURL, nil) else { return nil }
         let options: [CFString: Any] = [
@@ -34,10 +41,15 @@ enum ThumbnailGenerator {
         generator.appliesPreferredTrackTransform = true
 
         do {
-            let cgImage = try generator.copyCGImage(at: CMTime(seconds: 1, preferredTimescale: 60), actualTime: nil)
+            let cgImage = try generator.copyCGImage(at: .zero, actualTime: nil)
             return UIImage(cgImage: cgImage)
         } catch {
-            return nil
+            do {
+                let cgImage = try generator.copyCGImage(at: CMTime(seconds: 1, preferredTimescale: 600), actualTime: nil)
+                return UIImage(cgImage: cgImage)
+            } catch {
+                return nil
+            }
         }
     }
 

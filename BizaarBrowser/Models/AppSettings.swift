@@ -10,6 +10,8 @@ class AppSettings: ObservableObject {
     @AppStorage("filterType") var filterTypeRaw: String = MediaType.all.rawValue
     @AppStorage("darkModeEnabled") var darkModeEnabled: Bool = false
 
+    @Published var isBrowserChromeHidden: Bool = false
+
     var sortOption: SortOption {
         get { SortOption(rawValue: sortOptionRaw) ?? .dateNewest }
         set { sortOptionRaw = newValue.rawValue }

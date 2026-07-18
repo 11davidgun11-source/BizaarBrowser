@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct MainTabView: View {
+    @EnvironmentObject var settings: AppSettings
     @State private var selectedTab = 0
 
     var body: some View {
@@ -24,5 +25,7 @@ struct MainTabView: View {
                 .tag(2)
         }
         .accentColor(.gold)
+        .toolbar(settings.isBrowserChromeHidden && selectedTab == 0 ? .hidden : .automatic, for: .tabBar)
+        .animation(.easeOut(duration: 0.25), value: settings.isBrowserChromeHidden)
     }
 }

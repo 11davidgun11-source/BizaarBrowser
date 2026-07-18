@@ -3,6 +3,7 @@ import WebKit
 
 struct WebViewContainer: UIViewRepresentable {
     @ObservedObject var browserState: BrowserState
+    @ObservedObject var settings: AppSettings
 
     func makeUIView(context: Context) -> WKWebView {
         let config = WKWebViewConfiguration()
@@ -17,6 +18,7 @@ struct WebViewContainer: UIViewRepresentable {
         browserState.webView = webView
 
         context.coordinator.browserState = browserState
+        context.coordinator.settings = settings
         context.coordinator.webView = webView
         webView.navigationDelegate = context.coordinator
         webView.uiDelegate = context.coordinator
@@ -35,34 +37,50 @@ struct WebViewContainer: UIViewRepresentable {
 
     class Coordinator: NSObject, WKNavigationDelegate, WKUIDelegate {
         var browserState: BrowserState?
+        var settings: AppSettings?
         weak var webView: WKWebView?
         private var previousScrollY: CGFloat = 0
         private var scrollAccumulator: CGFloat = 0
+        private var hasReceivedFirstScroll = false
 
         override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
             if keyPath == "contentOffset" {
                 guard let scrollView = object as? UIScrollView else { return }
                 let currentY = scrollView.contentOffset.y
-                let delta = currentY - previousScrollY
+                let insetTop = scrollView.adjustedContentInset.top
 
-                guard currentY > 0 else {
+                guard hasReceivedFirstScroll else {
                     previousScrollY = currentY
-                    scrollAccumulator = 0
+                    hasReceivedFirstScroll = true
                     return
                 }
 
+                guard currentY > -insetTop + 10 else {
+                    if settings?.isBrowserChromeHidden == true {
+                        DispatchQueue.main.async { [weak self] in
+                            withAnimation(.easeOut(duration: 0.25)) {
+                                self?.settings?.isBrowserChromeHidden = false
+                            }
+                        }
+                    }
+                    scrollAccumulator = 0
+                    previousScrollY = currentY
+                    return
+                }
+
+                let delta = currentY - previousScrollY
                 scrollAccumulator += delta
 
                 DispatchQueue.main.async { [weak self] in
-                    guard let self = self, let state = self.browserState else { return }
-                    if self.scrollAccumulator > 50 && !state.isChromeHidden {
+                    guard let self = self, let settings = self.settings else { return }
+                    if self.scrollAccumulator > 50 && !settings.isBrowserChromeHidden {
                         withAnimation(.easeOut(duration: 0.25)) {
-                            state.isChromeHidden = true
+                            settings.isBrowserChromeHidden = true
                         }
                         self.scrollAccumulator = 0
-                    } else if self.scrollAccumulator < -30 && state.isChromeHidden {
+                    } else if self.scrollAccumulator < -30 && settings.isBrowserChromeHidden {
                         withAnimation(.easeOut(duration: 0.25)) {
-                            state.isChromeHidden = false
+                            settings.isBrowserChromeHidden = false
                         }
                         self.scrollAccumulator = 0
                     }
