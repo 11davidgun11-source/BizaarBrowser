@@ -87,7 +87,7 @@ struct SettingsView: View {
                             Text("Bizaar Browser")
                                 .font(.headline)
                                 .foregroundColor(.gold)
-                            Text("Version 1.0.0")
+                            Text("Version 1.0.4")
                                 .font(.caption)
                                 .foregroundColor(.secondary)
                         }
