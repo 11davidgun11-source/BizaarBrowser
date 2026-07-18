@@ -1,0 +1,525 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A10001 /* BizaarBrowserApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20001; };
+		A10002 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20002; };
+		A10003 /* MediaFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20003; };
+		A10004 /* DetectedMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20004; };
+		A10005 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20005; };
+		A10006 /* DownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20006; };
+		A10007 /* MediaDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20007; };
+		A10008 /* FFmpegWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20008; };
+		A10009 /* Color+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20009; };
+		A10010 /* ThumbnailGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20010; };
+		A10011 /* FileSizeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20011; };
+		A10012 /* BrowserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20012; };
+		A10013 /* BrowserState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20013; };
+		A10014 /* WebViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20014; };
+		A10015 /* AddressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20015; };
+		A10016 /* BrowserToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20016; };
+		A10017 /* MediaOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20017; };
+		A10018 /* GalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20018; };
+		A10019 /* GalleryFilterBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20019; };
+		A10020 /* ThumbnailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20020; };
+		A10021 /* MediaViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20021; };
+		A10022 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20022; };
+		A10023 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20023; };
+		A10024 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A20024; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A20001 /* BizaarBrowserApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BizaarBrowserApp.swift; sourceTree = "<group>"; };
+		A20002 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		A20003 /* MediaFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaFile.swift; sourceTree = "<group>"; };
+		A20004 /* DetectedMedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectedMedia.swift; sourceTree = "<group>"; };
+		A20005 /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
+		A20006 /* DownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
+		A20007 /* MediaDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaDetector.swift; sourceTree = "<group>"; };
+		A20008 /* FFmpegWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFmpegWrapper.swift; sourceTree = "<group>"; };
+		A20009 /* Color+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Theme.swift"; sourceTree = "<group>"; };
+		A20010 /* ThumbnailGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailGenerator.swift; sourceTree = "<group>"; };
+		A20011 /* FileSizeFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileSizeFormatter.swift; sourceTree = "<group>"; };
+		A20012 /* BrowserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserView.swift; sourceTree = "<group>"; };
+		A20013 /* BrowserState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserState.swift; sourceTree = "<group>"; };
+		A20014 /* WebViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewContainer.swift; sourceTree = "<group>"; };
+		A20015 /* AddressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressBar.swift; sourceTree = "<group>"; };
+		A20016 /* BrowserToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserToolbar.swift; sourceTree = "<group>"; };
+		A20017 /* MediaOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaOverlay.swift; sourceTree = "<group>"; };
+		A20018 /* GalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryView.swift; sourceTree = "<group>"; };
+		A20019 /* GalleryFilterBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryFilterBar.swift; sourceTree = "<group>"; };
+		A20020 /* ThumbnailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailCell.swift; sourceTree = "<group>"; };
+		A20021 /* MediaViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaViewer.swift; sourceTree = "<group>"; };
+		A20022 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		A20023 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		A20024 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A20025 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A20026 /* BizaarBrowser.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BizaarBrowser.entitlements; sourceTree = "<group>"; };
+		A30001 /* BizaarBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BizaarBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A40001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A50001 = {
+			isa = PBXGroup;
+			children = (
+				A50002 /* BizaarBrowser */,
+				A50009 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A50002 /* BizaarBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				A50003 /* App */,
+				A50004 /* Views */,
+				A50005 /* Models */,
+				A50006 /* Services */,
+				A50007 /* Utilities */,
+				A20024 /* Assets.xcassets */,
+				A20025 /* Info.plist */,
+				A20026 /* BizaarBrowser.entitlements */,
+			);
+			path = BizaarBrowser;
+			sourceTree = "<group>";
+		};
+		A50003 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				A20001 /* BizaarBrowserApp.swift */,
+				A20002 /* MainTabView.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		A50004 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A50010 /* Browser */,
+				A50011 /* Gallery */,
+				A50012 /* Settings */,
+				A50013 /* Common */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A50005 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A20003 /* MediaFile.swift */,
+				A20004 /* DetectedMedia.swift */,
+				A20005 /* AppSettings.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A50006 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A20006 /* DownloadManager.swift */,
+				A20007 /* MediaDetector.swift */,
+				A20008 /* FFmpegWrapper.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		A50007 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				A20009 /* Color+Theme.swift */,
+				A20010 /* ThumbnailGenerator.swift */,
+				A20011 /* FileSizeFormatter.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		A50009 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A30001 /* BizaarBrowser.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A50010 /* Browser */ = {
+			isa = PBXGroup;
+			children = (
+				A20012 /* BrowserView.swift */,
+				A20013 /* BrowserState.swift */,
+				A20014 /* WebViewContainer.swift */,
+				A20015 /* AddressBar.swift */,
+				A20016 /* BrowserToolbar.swift */,
+				A20017 /* MediaOverlay.swift */,
+			);
+			path = Browser;
+			sourceTree = "<group>";
+		};
+		A50011 /* Gallery */ = {
+			isa = PBXGroup;
+			children = (
+				A20018 /* GalleryView.swift */,
+				A20019 /* GalleryFilterBar.swift */,
+				A20020 /* ThumbnailCell.swift */,
+				A20021 /* MediaViewer.swift */,
+			);
+			path = Gallery;
+			sourceTree = "<group>";
+		};
+		A50012 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				A20022 /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		A50013 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				A20023 /* LoadingView.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A60001 /* BizaarBrowser */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A80003 /* Build configuration list for PBXNativeTarget "BizaarBrowser" */;
+			buildPhases = (
+				A70001 /* Sources */,
+				A40001 /* Frameworks */,
+				A70002 /* Resources */,
+				A70003 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BizaarBrowser;
+			productName = BizaarBrowser;
+			productReference = A30001 /* BizaarBrowser.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A90001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					A60001 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = A80001 /* Build configuration list for PBXProject "BizaarBrowser" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A50001;
+			productRefGroup = A50009 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A60001 /* BizaarBrowser */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A70002 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A10024 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A70003 /* Embed Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ -d \"${PROJECT_DIR}/Frameworks\" ]; then\n  mkdir -p \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}\"\n  for framework in \"${PROJECT_DIR}/Frameworks\"/*.xcframework; do\n    if [ -d \"$framework\" ]; then\n      cp -R \"$framework\" \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/\"\n    fi\n  done\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A70001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A10001 /* BizaarBrowserApp.swift in Sources */,
+				A10002 /* MainTabView.swift in Sources */,
+				A10003 /* MediaFile.swift in Sources */,
+				A10004 /* DetectedMedia.swift in Sources */,
+				A10005 /* AppSettings.swift in Sources */,
+				A10006 /* DownloadManager.swift in Sources */,
+				A10007 /* MediaDetector.swift in Sources */,
+				A10008 /* FFmpegWrapper.swift in Sources */,
+				A10009 /* Color+Theme.swift in Sources */,
+				A10010 /* ThumbnailGenerator.swift in Sources */,
+				A10011 /* FileSizeFormatter.swift in Sources */,
+				A10012 /* BrowserView.swift in Sources */,
+				A10013 /* BrowserState.swift in Sources */,
+				A10014 /* WebViewContainer.swift in Sources */,
+				A10015 /* AddressBar.swift in Sources */,
+				A10016 /* BrowserToolbar.swift in Sources */,
+				A10017 /* MediaOverlay.swift in Sources */,
+				A10018 /* GalleryView.swift in Sources */,
+				A10019 /* GalleryFilterBar.swift in Sources */,
+				A10020 /* ThumbnailCell.swift in Sources */,
+				A10021 /* MediaViewer.swift in Sources */,
+				A10022 /* SettingsView.swift in Sources */,
+				A10023 /* LoadingView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		AA0001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AA0002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AB0001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = BizaarBrowser/BizaarBrowser.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BizaarBrowser/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Bizaar Browser";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bizaar.browser;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AB0002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = BizaarBrowser/BizaarBrowser.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BizaarBrowser/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Bizaar Browser";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bizaar.browser;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A80001 /* Build configuration list for PBXProject "BizaarBrowser" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA0001 /* Debug */,
+				AA0002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A80003 /* Build configuration list for PBXNativeTarget "BizaarBrowser" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AB0001 /* Debug */,
+				AB0002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A90001 /* Project object */;
+}
