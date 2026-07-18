@@ -80,10 +80,8 @@ struct MediaFile: Identifiable, Hashable {
         self.dateAdded = (attributes?[.creationDate] as? Date) ?? Date()
         self.fileSize = (attributes?[.size] as? Int64) ?? 0
 
-        if self.isVideo || self.isAnimated {
-            self.duration = ThumbnailGenerator.videoDuration(for: url)
-        } else {
-            self.duration = nil
-        }
+        let ext = self.fileExtension
+        let needsDuration = (ext == "mp4" || ext == "webm" || ext == "gif")
+        self.duration = needsDuration ? ThumbnailGenerator.videoDuration(for: url) : nil
     }
 }
