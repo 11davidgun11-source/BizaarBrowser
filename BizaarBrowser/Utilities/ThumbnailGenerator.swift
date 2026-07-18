@@ -11,6 +11,8 @@ enum ThumbnailGenerator {
             return videoThumbnail(for: mediaFile.url, size: size)
         case .gif:
             return gifThumbnail(for: mediaFile.url, size: size)
+        case .all:
+            return imageThumbnail(for: mediaFile.url, size: size)
         }
     }
 
@@ -32,7 +34,7 @@ enum ThumbnailGenerator {
         generator.appliesPreferredTrackTransform = true
 
         do {
-            let (cgImage, _) = try generator.copyCGImage(at: CMTime(seconds: 1, preferredTimescale: 60), actualTime: nil)
+            let cgImage = try generator.copyCGImage(at: CMTime(seconds: 1, preferredTimescale: 60), actualTime: nil)
             return UIImage(cgImage: cgImage)
         } catch {
             return nil
